@@ -1,0 +1,30 @@
+<mat-card class="card">
+
+</mat-card>
+<mat-card class="card">
+
+  <mat-form-field>
+    <mat-label>Região</mat-label>
+    <mat-select  (selectionChange)="dataChanged($event)">
+      <mat-option value="SE">SE</mat-option>
+      <mat-option value="S">S</mat-option>
+      <mat-option value="NE">NE</mat-option>
+      <mat-option value="N">N</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-table [dataSource]="agentes">
+
+    <ng-container matColumnDef="agente">
+      <mat-header-cell *matHeaderCellDef>Agente</mat-header-cell>
+      <mat-cell *matCellDef="let agente">{{ agente.agente }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="data">
+      <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
+      <mat-cell *matCellDef="let agente">{{ agente.data  | date: 'dd/MM/yyyy'  }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+</mat-card>

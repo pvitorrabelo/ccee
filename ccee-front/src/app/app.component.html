@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <span (mouseleave)="menuTrigger.closeMenu()">
+        <button mat-menu-item (click)="selectedMenu('upload')">
+          <mat-icon>attach_file</mat-icon>
+          <span>Upload arquivos</span>
+        </button>
+        <button mat-menu-item (click)="selectedMenu('list')">
+          <mat-icon>find_in_page</mat-icon>
+          <span>Consultar</span>
+        </button>
+      </span>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Desafio CCEE</span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
